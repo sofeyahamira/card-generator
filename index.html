@@ -42,14 +42,23 @@
   <button onclick="generateCard()">Generate Card</button>
 
   <script>
-    const suits = ["♢", "♡", "♤", "♧"];
-    const cards = ["A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"];
-
     function generateCard() {
-      const suit = suits[Math.floor(Math.random() * suits.length)];
-      const card = cards[Math.floor(Math.random() * cards.length)];
-      document.getElementById("card").textContent = `${card} ${suit}`;
-    }
+  const suits = ["♢", "♡", "♤", "♧"];
+  const cards = ["A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "Joker", "Joker"];
+  
+  const card = cards[Math.floor(Math.random() * cards.length)];
+
+  let display;
+  if (card === "Joker") {
+    display = "Joker";
+  } else {
+    const suit = suits[Math.floor(Math.random() * suits.length)];
+    display = `${card} ${suit}`;
+  }
+
+  document.getElementById("card").textContent = display;
+}
+   
   </script>
 </body>
 </html>
