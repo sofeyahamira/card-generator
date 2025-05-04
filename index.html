@@ -42,6 +42,9 @@
   <button onclick="generateCard()">Generate Card</button>
   <br>
   <button class="back" onclick="back()">Back</button>
+  
+  <audio id="cardSound" src="card-flip.mp3" preload="auto"></audio>
+
   <script>
     function generateCard() {
   const suits = ["♢", "♡", "♤", "♧"];
@@ -58,6 +61,11 @@
   }
 
   document.getElementById("card").textContent = display;
+  
+  const sound = document.getElementById("cardSound");
+  sound.currentTime = 0;
+  sound.play();
+
 }
     function back() {
       document.getElementById("card").textContent = "🂠";
